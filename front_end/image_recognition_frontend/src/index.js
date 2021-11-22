@@ -4,15 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from './components/header';
-import NavbarMain from './components/navbarMain';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavbarMain />
-    <Header />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
