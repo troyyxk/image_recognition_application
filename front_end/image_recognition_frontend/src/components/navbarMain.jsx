@@ -11,7 +11,8 @@ class NavbarMain extends Component {
                 <Navbar.Brand href="home">Image Recognization</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="home">Home</Nav.Link>
-                    <Nav.Link href="start">Start</Nav.Link>
+                    <Nav.Link href="submit">Submit</Nav.Link>
+                    <Nav.Link href="review">Review</Nav.Link>
                     <Nav.Link href="documentation">Documentation</Nav.Link>
                 </Nav>
                 </Container>
