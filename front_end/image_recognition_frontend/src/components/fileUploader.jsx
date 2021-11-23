@@ -9,10 +9,6 @@ class FilerUploader extends Component {
         for (let i = 0; i < e.target.files.length; i++) {
             window.localStorage.setItem(e.target.files[i].name, "");
         }
-        console.log(e.target.files);
-        console.log(e.target.files[0]);
-        console.log(e.target.value);
-        // window.localStorage.setItem();
         console.log(window.localStorage);
     }
 
