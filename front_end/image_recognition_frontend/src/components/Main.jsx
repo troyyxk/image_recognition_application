@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import '../App.css';
+import FilerUploader from './fileUploader';
 
 class Main extends Component {
     // state = {}
     render() {
         return (
             <div className="App-header">
-                <h1>
-                    Main events here.
-                </h1>
+                <FilerUploader />
             </div>
         );
     }
