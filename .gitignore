@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Backend virtual environment
+/back_end/venv/
+/.idea/
+/back_end/back_end/db.sqlite3
+/back_end/back_end/media/images/
