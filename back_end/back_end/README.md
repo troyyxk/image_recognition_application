@@ -24,6 +24,11 @@ There are two functions defined in `recognition.views`. They are linked to 2 url
 
 The documentation of APIs is HERE.
 
+## Admin site
+Django comes with a default admin site for you to manage data in the database. To access the admin site, visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) and login with the superuser's credentials.
+
+Remember that to manage your custom `models` in the admin site, you need to register them in `admin.py` first.
+
 ## If you need to add / delete / alter a field in `models.py`
 After you make your changes to that file, execute the following commands to apply your changes.
 
