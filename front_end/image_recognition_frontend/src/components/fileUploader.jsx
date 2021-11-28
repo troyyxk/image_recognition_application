@@ -8,8 +8,10 @@ toast.configure();
 class FilerUploader extends Component {
     onInputChange = (e) => {
         // when submit new files, clear the records the old ones
-        window.localStorage.clear();
-        var set = new Set();
+        if (window.localStorage.getItem("irImage") !== null) {
+            window.localStorage.removeItem("irImage");
+        }
+        var irImage = {};
         for (let i = 0; i < e.target.files.length; i++) {
             if (window.localStorage.getItem(e.target.files[i].name) !== null) {
                 toast.error('Cannot submit files with the same name!');
@@ -24,6 +26,7 @@ class FilerUploader extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        console.log("In onSubmit");
     }
 
     render() {

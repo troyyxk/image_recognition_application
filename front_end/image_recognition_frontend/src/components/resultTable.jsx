@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import '../App.css';
+import Submit from './submit';
 
 class ResultTable extends Component {
     // state = {}
     render() {
+        if (window.localStorage.getItem("irImage") === null){
+            return (
+                <div className="App-header">
+                    <h1> Not tasks right now, please submit tasks at the "Submit" tab </h1>
+                </div>
+                );
+        }
+
         return (
             <div className="App-header">
                 <Table striped bordered hover variant="dark">
