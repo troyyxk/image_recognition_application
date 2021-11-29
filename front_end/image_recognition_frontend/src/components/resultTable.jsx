@@ -1,10 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Table } from 'react-bootstrap';
 import '../App.css';
+import Submit from './submit';
 
 class ResultTable extends Component {
-    // state = {}
+    state = {}
+    
+    constructor() {
+        super();
+        var irImage = JSON.parse(window.localStorage.getItem("irImage"));
+        this.state = {irImage: irImage};
+    }
+
     render() {
+        if (window.localStorage.getItem("irImage") === null){
+            return (
+                <div className="App-header">
+                    <h1> Not tasks right now, please submit tasks at the "Submit" tab </h1>
+                </div>
+                );
+        }
+        
+        console.log(this.state.irImage)
         return (
             <div className="App-header">
                 <Table striped bordered hover variant="dark">
@@ -16,20 +33,13 @@ class ResultTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                        </tr>
+                        {this.state.irImage.map(item => (
+                            <tr>
+                                <td>{item.serialNum}</td>
+                                <td>{item.name}</td>
+                                <td>{item.result}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </Table>
             </div>
