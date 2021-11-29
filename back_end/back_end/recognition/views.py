@@ -26,14 +26,14 @@ def upload_image(request):
         )
         new_img.save()
         json_data = json.loads(request.body.decode('utf-8'))
-        ext, img_binary = get_img(json_data['image_b64'], new_img.uuid)
-        new_img.image.save(f'{new_img.uuid}.{ext}', ContentFile(img_binary))
+        ext, img_str = get_img(json_data['image_b64'])
+        new_img.image.save(f'{new_img.uuid}.{ext}', ContentFile(base64.b64decode(img_str)))
 
         new_img.save()
 
         # TODO add task to celery
 
-        recognize_image.delay(img_binary)
+        recognize_image.delay(img_str)
 
         return JsonResponse({
             'code': 0,
@@ -52,10 +52,10 @@ def upload_image(request):
         })
 
 
-def get_img(data, uuid):
+def get_img(data):
     extend, img_str = data.split(';base64,')
     ext = extend.split('/')[-1]
-    return ext, base64.b64decode(img_str)
+    return ext, img_str
     # return ContentFile(base64.b64decode(img_str), name=uuid + '.' + ext)
 
 
