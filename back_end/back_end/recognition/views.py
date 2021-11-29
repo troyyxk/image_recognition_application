@@ -33,7 +33,7 @@ def upload_image(request):
 
         # TODO add task to celery
 
-        recognize_image.delay(img_binary)
+        recognize_image.delay(img_binary, new_img.uuid)
 
         return JsonResponse({
             'code': 0,
