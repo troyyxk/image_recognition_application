@@ -128,6 +128,7 @@ def update_result(request, uuid_req):
             img_record.category = json_data['category']
             img_record.probability = json_data['probability']
 
+        img_record.save()
 
         return JsonResponse({
             'code':0,
