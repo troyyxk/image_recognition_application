@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse, Http404
 from .models import Image
 import base64
 from django.core.files.base import ContentFile
+import json
 
 
 # Create your views here.
@@ -23,9 +24,14 @@ def upload_image(request):
             status=Image.TaskStatus.WAITING,
         )
         new_img.save()
-        data = request.FILES.get('Payload')
-        img = get_img(data, new_img.uuid)
+        json_data = json.loads(request.body.decode('utf-8'))
+        img = get_img(json_data['image_b64'], new_img.uuid)
         new_img.image = img
+
+        new_img.save()
+
+        # TODO add task to celery
+
         return JsonResponse({
             'code': 0,
             'message': 'OK',
