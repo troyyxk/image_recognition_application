@@ -22,5 +22,5 @@ from recognition.views import upload_image, query_result
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/upload/', upload_image),
-    path('api/query/', query_result),
+    path('api/query/<String:uuid>', query_result),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
