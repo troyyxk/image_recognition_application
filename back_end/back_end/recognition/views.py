@@ -77,8 +77,7 @@ def query_result(request, uuid_req):
                     'status': 0,
                 }
             })
-        img_name = img_record.image.name
-        img_url = BASE_DIR / 'media' + img_name
+        img_url = img_record.image.url
         return JsonResponse({
             'code': 0,
             'result': {
