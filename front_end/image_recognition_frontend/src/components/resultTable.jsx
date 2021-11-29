@@ -35,7 +35,7 @@ class ResultTable extends Component {
                     <tbody>
                         {this.state.irImage.map(item => (
                             <tr>
-                                <td>{item.uuid}</td>
+                                <td>{item.serialNum}</td>
                                 <td>{item.name}</td>
                                 <td>{item.result}</td>
                             </tr>

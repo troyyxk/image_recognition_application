@@ -8,7 +8,7 @@ toast.configure();
 // reference
 // https://stackoverflow.com/questions/28918232/how-do-i-persist-a-es6-map-in-localstorage-or-elsewhere
 
-class FilerUploader extends Component {
+class  FilerUploader extends Component {
     onInputChange = (e) => {
         // when submit new files, clear the records the old ones
         if (window.localStorage.getItem("irImage") !== null) {
@@ -19,11 +19,10 @@ class FilerUploader extends Component {
         for (let i = 0; i < e.target.files.length; i++) {
             if (nameSet.has(e.target.files[i].name)) {
                 toast.error('Cannot submit files with the same name!');
-                window.localStorage.removeItem("irImage");
                 return;
             }
             nameSet.add(e.target.files[i].name);
-            irImage.push({name: e.target.files[i].name, uuid: "", result: ""});
+            irImage.push({serialNum: i+1, name: e.target.files[i].name, uuid: "", result: "Unknown"});
         }
         toast.success('Files have been successfully uploaded! Please turn to review tab for checking the result.');
         window.localStorage.setItem("irImage", JSON.stringify(irImage));
