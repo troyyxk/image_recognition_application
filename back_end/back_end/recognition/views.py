@@ -99,3 +99,47 @@ def query_result(request, uuid_req):
             }
         })
 
+
+def update_result(request, uuid_req):
+    '''
+    An interface for celery worker to return the results to.
+    :param request:
+    :param uuid:
+    :return:
+    '''
+
+    if request.method == 'POST':
+        try:
+            img_record = Image.objects.get(uuid=uuid_req)
+        except Image.DoesNotExist:
+            return JsonResponse({
+                'code': 1,
+                'result': {
+                    'uuid': uuid_req,
+                    'status': 0,
+                }
+            })
+
+        json_data = json.loads(request.body.decode('utf-8'))
+
+        img_record.status = json_data['status']
+
+        if json_data['status'] == Image.TaskStatus.COMPLETED.value:
+            img_record.category = json_data['category']
+            img_record.probability = json_data['probability']
+
+
+        return JsonResponse({
+            'code':0,
+            'message': 'OK',
+            'result': None,
+        })
+
+    else:
+        return JsonResponse({
+            'code': 1,
+            'message': 'Request passed to update is not POST ',
+            'result': {
+                'uuid': ''
+            }
+        })
