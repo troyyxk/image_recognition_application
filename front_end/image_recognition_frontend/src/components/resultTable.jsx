@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { Table } from 'react-bootstrap';
+import { Container,Row, Button, Table } from 'react-bootstrap';
+import { getResult } from '../services/imageService';
 import '../App.css';
 import Submit from './submit';
 
@@ -10,6 +11,14 @@ class ResultTable extends Component {
         super();
         var irImage = JSON.parse(window.localStorage.getItem("irImage"));
         this.state = {irImage: irImage};
+    }
+
+    handleOnClick = () => {
+        for (var key in Object.keys(this.state.irImage)) {
+            var uuid = this.state.irImage[key].uuid;
+            getResult(uuid);
+        }
+        window.location.reload();
     }
 
     render() {
@@ -24,6 +33,7 @@ class ResultTable extends Component {
         console.log(this.state.irImage)
         return (
             <div className="App-header">
+                <Button variant="info" onClick={this.handleOnClick}>Refresh</Button>
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>

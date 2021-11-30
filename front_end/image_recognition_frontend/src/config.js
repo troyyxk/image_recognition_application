@@ -1,6 +1,6 @@
 export const config = {
     backend: {
-        host: process.env.NODE_ENV === 'production' ? "https://devflowproject.herokuapp.com" : "http://localhost:",
-        port: process.env.NODE_ENV === 'production' ? "" : 5000
+        host: "http://143.215.216.196:28000/",
+        port: 28000
     }
 };
