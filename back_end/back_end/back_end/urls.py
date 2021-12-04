@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from recognition.views import upload_image, query_result
+from recognition.views import upload_image, query_result, update_result
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/upload/', upload_image),
-    path('api/query/<String:uuid>', query_result),
+    path('api/query/<str:uuid_req>/', query_result),
+    path('api/update/<str:uuid_req>/', update_result),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

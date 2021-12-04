@@ -4,13 +4,14 @@ from .models import Image
 import base64
 from django.core.files.base import ContentFile
 import json
+from .tasks import recognize_image
 
 
 # Create your views here.
 
 
 # TODO: Fill in two view functions below.
-from ..back_end.settings import BASE_DIR
+from back_end.settings import BASE_DIR
 
 
 def upload_image(request):
@@ -25,12 +26,14 @@ def upload_image(request):
         )
         new_img.save()
         json_data = json.loads(request.body.decode('utf-8'))
-        img = get_img(json_data['image_b64'], new_img.uuid)
-        new_img.image = img
+        ext, img_binary = get_img(json_data['image_b64'])
+        new_img.image.save(f'{new_img.uuid}.{ext}', ContentFile(img_binary))
 
         new_img.save()
 
         # TODO add task to celery
+
+        recognize_image.delay(img_binary, new_img.uuid)
 
         return JsonResponse({
             'code': 0,
@@ -49,10 +52,12 @@ def upload_image(request):
         })
 
 
-def get_img(data, uuid):
+def get_img(data):
     extend, img_str = data.split(';base64,')
     ext = extend.split('/')[-1]
-    return ContentFile(base64.b64decode(img_str), name=uuid + '.' + ext)
+    return ext, base64.b64decode(img_str)
+    # return ContentFile(base64.b64decode(img_str), name=uuid + '.' + ext)
+
 
 
 def query_result(request, uuid_req):
@@ -72,8 +77,7 @@ def query_result(request, uuid_req):
                     'status': 0,
                 }
             })
-        img_name = img_record.image.name
-        img_url = BASE_DIR / 'media' + img_name
+        img_url = img_record.image.url
         return JsonResponse({
             'code': 0,
             'result': {
@@ -94,3 +98,48 @@ def query_result(request, uuid_req):
             }
         })
 
+
+def update_result(request, uuid_req):
+    '''
+    An interface for celery worker to return the results to.
+    :param request:
+    :param uuid:
+    :return:
+    '''
+
+    if request.method == 'POST':
+        try:
+            img_record = Image.objects.get(uuid=uuid_req)
+        except Image.DoesNotExist:
+            return JsonResponse({
+                'code': 1,
+                'result': {
+                    'uuid': uuid_req,
+                    'status': 0,
+                }
+            })
+
+        json_data = json.loads(request.body.decode('utf-8'))
+
+        img_record.status = json_data['status']
+
+        if json_data['status'] == Image.TaskStatus.COMPLETED.value:
+            img_record.category = json_data['category']
+            img_record.probability = json_data['probability']
+
+        img_record.save()
+
+        return JsonResponse({
+            'code':0,
+            'message': 'OK',
+            'result': None,
+        })
+
+    else:
+        return JsonResponse({
+            'code': 1,
+            'message': 'Request passed to update is not POST ',
+            'result': {
+                'uuid': ''
+            }
+        })
