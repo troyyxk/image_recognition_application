@@ -3,8 +3,8 @@
 BASE_DIR=$(pwd)
 
 echo "Which role does this machine play?"
-echo "[1] Server"
-echo "[2] Worker"
+echo "[1] Server - Serves HTML files, Django backend and RabbitMQ"
+echo "[2] Worker - Runs GoogleNet"
 
 read role
 
@@ -51,9 +51,19 @@ if [ $role = "1" ]; then
 
 
 elif [ $role = "2" ]; then
-  echo "hello"
+
+  echo "Installing dependencies..."
+  sudo apt-get update
+  sudo apt-get install -y python3-pip libjpeg8-dev zlib1g-dev
+  pip3 install setuptools
+  pip3 install wheel
+  pip3 install torch==1.10.0+cpu torchvision==0.11.1+cpu torchaudio==0.10.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+  pip3 install requests
+
+  echo "Starting Celery Worker..."
+  cd $BASE_DIR/celery_worker
+  nohup celery worker -A tasks --queues=recognize_image --loglevel=INFO &
 
 else
   echo "Input invalid! Aborted!"
-
 fi
