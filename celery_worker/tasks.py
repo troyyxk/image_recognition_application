@@ -11,7 +11,7 @@ from torchvision import transforms
 import io
 
 
-app = Celery('tasks', broker='pyamqp://guest@10.10.1.1//')
+app = Celery('tasks', broker='pyamqp://guest@server//')
 app.conf.update(
     enable_utc=True,
     timezone='America/New_York',
