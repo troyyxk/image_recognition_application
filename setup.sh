@@ -25,7 +25,7 @@ if [ $role = "1" ]; then
   python3 manage.py createsuperuser
 
   echo "Running Django Server..."
-  nohup python3 manage.py runserver 0.0.0.0:28000
+  nohup python3 manage.py runserver 0.0.0.0:28000 &
 
   echo "Copying frontend html files..."
   cd $BASE_DIR/front_end/image_recognition_frontend
