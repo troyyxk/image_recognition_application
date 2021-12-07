@@ -38,4 +38,8 @@ if [ $role = "1" ]; then
 
 elif [ $role = "2" ]; then
   echo "hello"
+
+else
+  echo "Input invalid! Aborted!"
+
 fi
