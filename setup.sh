@@ -14,7 +14,7 @@ if [ $role = "1" ]; then
   sudo apt-get install -y python3-pip libjpeg8-dev zlib1g-dev nginx
 
   echo "Installing Django and Dependencies..."
-  sudo pip install django pillow celery
+  sudo pip3 install django pillow celery
 
   cd $BASE_DIR/back_end/back_end
 
