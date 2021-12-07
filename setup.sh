@@ -20,7 +20,7 @@ if [ $role = "1" ]; then
 
   echo "Installing docker..."
   sudo apt-get update
-  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
   echo "Installing Django and Dependencies..."
   sudo pip3 install django pillow celery
