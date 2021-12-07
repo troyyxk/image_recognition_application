@@ -16,6 +16,9 @@
     ```bash
     $ python manage.py runserver 0.0.0.0:8000
     ```
+5. Run worker and specify the router on a distributed machine.
+    ```bash
+    $ celery -A back_end worker -Q recognize_image
    
 Now you can access the website at [http://127.0.0.1:8000](http://127.0.0.1:8000). You should see a 404 Not Found message.
 
