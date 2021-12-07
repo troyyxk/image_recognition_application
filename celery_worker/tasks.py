@@ -22,7 +22,7 @@ app.conf.update(
 @shared_task(name='recognize_image')
 def recognize_image(image_binary, uuid):
     session = requests.Session()
-    res = session.post(f'http://10.10.1.1:28000/api/update/{uuid}/', json={'status': 1})
+    res = session.post(f'http://server:28000/api/update/{uuid}/', json={'status': 1})
     print('received', uuid)
 
     input_image = Image.open(io.BytesIO(image_binary))
@@ -58,7 +58,7 @@ def recognize_image(image_binary, uuid):
 
     print('finished')
     res = session.post(
-        f'http://10.10.1.1:28000/api/update/{uuid}/',
+        f'http://server:28000/api/update/{uuid}/',
         json={
             'status': 2,
             'category': categories[top5_catid[0]],
