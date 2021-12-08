@@ -1,0 +1,20 @@
+Server:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pcvm3-6.instageni.northwestern.edu -p 22
+
+Worker 1:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc2.instageni.northwestern.edu -p 26410
+
+Worker 2:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc2.instageni.northwestern.edu -p 26411
+
+Worker 3:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc3.instageni.northwestern.edu -p 26413
+
+Worker 4:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc3.instageni.northwestern.edu -p 26414
+
+Worker 5:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc1.instageni.northwestern.edu -p 26410
+
+Worker 6:
+ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pc3.instageni.northwestern.edu -p 26415
