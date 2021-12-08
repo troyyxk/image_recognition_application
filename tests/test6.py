@@ -5,7 +5,7 @@ import os.path
 import requests
 import base64
 
-pic_path = 'pictures/'
+pic_path = '../pictures/'
 
 upload_url = 'http://server:28000/api/upload/'
 
@@ -62,7 +62,7 @@ def evaluate(path, thread_id):
 
 
 if __name__ == "__main__":
-    num_threads = 9
+    num_threads = 6
     for i in range(num_threads):
         # print("gate0")
         _thread.start_new_thread( evaluate, (pic_path, i) )

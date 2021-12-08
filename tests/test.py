@@ -5,7 +5,7 @@ import os.path
 import requests
 import base64
 
-pic_path = 'pictures/'
+pic_path = '../pictures/'
 
 upload_url = 'http://server:28000/api/upload/'
 
