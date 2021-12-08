@@ -1,0 +1,77 @@
+1 worker
+
+1 user
+thread  0  Avg tput:  6020.1689937963365  
+3 user
+thread  0  Avg tput:  4996.551400041315
+thread  1  Avg tput:  4090.817901033247
+thread  2  Avg tput:  3391.3943931802864
+6 user
+thread  0  Avg tput:  3376.0508600650396
+thread  4  Avg tput:  2934.6801851713726
+thread  5  Avg tput:  2576.128658948404
+thread  1  Avg tput:  2271.8808747864955
+thread  2  Avg tput:  2168.7372284598914
+thread  3  Avg tput:  1957.0777768539326
+9 user
+thread  1  Avg tput:  3093.2748756907504
+thread  0  Avg tput:  2797.747166969943
+thread  2  Avg tput:  2387.2262743347837
+thread  6  Avg tput:  2159.1737637793212
+thread  8  Avg tput:  1970.7966651443976
+thread  5  Avg tput:  1802.3437450555455
+thread  4  Avg tput:  1746.133321821001
+thread  3  Avg tput:  1568.4036671161496
+thread  7  Avg tput:  1456.4168152526274
+
+3 worker
+
+1 user
+thread  0  Avg tput:  6436.001470360546
+3 user
+thread  1  Avg tput:  5796.220584135223
+thread  2  Avg tput:  5233.569733385189
+thread  0  Avg tput:  4593.909542941737
+6 user
+thread  5  Avg tput:  4002.9808125523914
+thread  2  Avg tput:  3662.4622047667317
+thread  4  Avg tput:  3532.3001379842376
+thread  0  Avg tput:  3299.3104621805774
+thread  1  Avg tput:  3113.7549615246535
+thread  3  Avg tput:  2875.278314658517
+9 user
+thread  3  Avg tput:  1933.125107738888
+thread  0  Avg tput:  1563.8715918687994
+thread  6  Avg tput:  1531.0549018482222
+thread  1  Avg tput:  1490.7520938068742
+thread  7  Avg tput:  1523.5718335567929
+thread  8  Avg tput:  1501.402884376804
+thread  4  Avg tput:  1471.456677778312
+thread  5  Avg tput:  1382.0986556136513
+thread  2  Avg tput:  1307.63836952047
+
+6 worker
+
+1 user
+thread  0  Avg tput:  6207.926061334894
+3 user
+thread  0  Avg tput:  4879.30544266776
+thread  1  Avg tput:  4321.645226348103
+thread  2  Avg tput:  4116.4189323050205
+6 user
+thread  4  Avg tput:  5074.828496581126
+thread  3  Avg tput:  3989.664499882675
+thread  0  Avg tput:  3805.2424477250665
+thread  1  Avg tput:  3781.4141449048097
+thread  2  Avg tput:  3823.393229347515
+thread  5  Avg tput:  3133.416678799599
+9 user
+thread  6  Avg tput:  2409.4262792847676
+thread  5  Avg tput:  2241.8455759562435
+thread  0  Avg tput:  2178.8477251766735
+thread  2  Avg tput:  2081.6147926347203
+thread  4  Avg tput:  2047.5733376582643
+thread  3  Avg tput:  2075.203280953321
+thread  1  Avg tput:  2120.3416616918435
+thread  7  Avg tput:  2156.384002173414
+thread  8  Avg tput:  2044.9134206671263
