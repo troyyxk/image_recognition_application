@@ -62,7 +62,7 @@ elif [ $role = "2" ]; then
 
   echo "Starting Celery Worker..."
   cd $BASE_DIR/celery_worker
-  nohup celery worker -A tasks --queues=recognize_image --loglevel=INFO &
+  nohup celery -A tasks worker --loglevel=INFO &
 
 else
   echo "Input invalid! Aborted!"
