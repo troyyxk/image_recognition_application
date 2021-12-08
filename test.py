@@ -58,7 +58,7 @@ def evaluate(path, thread_id):
     end_time = time.time()
     time_elapsed = end_time - start_time
     # print("thread ", thread_id, " Avg rtt: ", time_elapsed)
-    print("thread ", thread_id, " Avg tput: ", len(b64_string) * 8 / 1000 / time_elapsed, "kbps")
+    print("thread ", thread_id, " Avg tput: ", len(b64_string) * 8 / 1000 / time_elapsed)
 
 
 if __name__ == "__main__":

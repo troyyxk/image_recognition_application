@@ -1,5 +1,13 @@
+Client:
+ssh -i ~/.ssh/id_geni_ssh_rsa songboyi@pc3.instageni.northwestern.edu -p 26410
+scp -i ~/.ssh/id_geni_ssh_rsa -p 22 /mnt/c/Users/xingk/Documents/github/image_recognition_application/requirements.sh yinxingk@pcvm3-6.instageni.northwestern.edu:/users/yinxingk/ 
+
+cd /users/songboyi/image_recognition_application
+python3 test.py
+
 Server:
 ssh -i ~/.ssh/id_geni_ssh_rsa yinxingk@pcvm3-6.instageni.northwestern.edu -p 22
+ssh -i ~/.ssh/id_geni_ssh_rsa songboyi@pcvm3-6.instageni.northwestern.edu -p 22
 
 scp -i ~/.ssh/id_geni_ssh_rsa -p 22 /mnt/c/Users/xingk/Documents/github/image_recognition_application/requirements.sh yinxingk@pcvm3-6.instageni.northwestern.edu:/users/yinxingk/ 
 
@@ -32,7 +40,7 @@ ssh -i ~/.ssh/id_geni_ssh_rsa songboyi@pc3.instageni.northwestern.edu -p 26415
 
 songboyi@pc3.instageni.northwestern.edu:26415, 
 
-
+wenyi999
 
 python3 -m pip install torchvision 
 
