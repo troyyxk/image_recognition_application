@@ -7,9 +7,9 @@ import base64
 
 pic_path = 'pictures/'
 
-upload_url = 'http://165.124.51.192:28000/api/upload/'
+upload_url = 'http://server:28000/api/upload/'
 
-query_url = 'http://165.124.51.192:28000/api/query/'
+query_url = 'http://server:28000/api/query/'
 
 def print_time( threadName, delay):
    count = 0
