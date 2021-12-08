@@ -1,0 +1,77 @@
+1 worker
+
+1 user
+thread  0  Avg rtt:  2.460355281829834
+3 user
+thread  1  Avg rtt:  3.6876449584960938
+thread  2  Avg rtt:  4.408121585845947
+thread  0  Avg rtt:  5.0114946365356445
+6 user
+thread  3  Avg rtt:  3.692755699157715
+thread  1  Avg rtt:  4.0687994956970215
+thread  4  Avg rtt:  4.858185768127441
+thread  0  Avg rtt:  5.641698360443115
+thread  2  Avg rtt:  6.2434821128845215
+thread  5  Avg rtt:  6.87337589263916
+9 user
+thread  4  Avg rtt:  7.027168035507202
+thread  6  Avg rtt:  7.75654149055481
+thread  5  Avg rtt:  8.222980737686157
+thread  7  Avg rtt:  8.722410917282104
+thread  3  Avg rtt:  9.458202600479126
+thread  0  Avg rtt:  9.98358678817749
+thread  1  Avg rtt:  10.456604957580566
+thread  8  Avg rtt:  11.135846376419067
+thread  2  Avg rtt:  11.62172269821167
+
+3 worker
+
+1 user
+thread  0  Avg rtt:  2.08042049407959
+3 user
+thread  2  Avg rtt:  3.518960952758789
+thread  0  Avg rtt:  3.8589224815368652
+thread  1  Avg rtt:  4.211496114730835
+6 user
+thread  0  Avg rtt:  3.7699646949768066
+thread  4  Avg rtt:  3.7728378772735596
+thread  3  Avg rtt:  4.328852891921997
+thread  2  Avg rtt:  4.442219257354736
+thread  5  Avg rtt:  4.524786472320557
+thread  1  Avg rtt:  5.189099550247192
+9 user
+thread  3  Avg rtt:  3.8308680057525635
+thread  5  Avg rtt:  4.514110803604126
+thread  0  Avg rtt:  4.571049690246582
+thread  4  Avg rtt:  4.90877628326416
+thread  2  Avg rtt:  5.066368818283081
+thread  8  Avg rtt:  5.17548394203186
+thread  6  Avg rtt:  5.232267618179321
+thread  7  Avg rtt:  5.714776039123535
+thread  1  Avg rtt:  5.883876323699951
+
+6 worker
+
+1 user
+thread  0  Avg rtt:  1.7049052715301514
+3 user
+thread  1  Avg rtt:  2.7511792182922363
+thread  0  Avg rtt:  2.984480857849121
+thread  2  Avg rtt:  3.2413337230682373
+6 user
+thread  0  Avg rtt:  3.9676709175109863
+thread  3  Avg rtt:  4.041102886199951
+thread  1  Avg rtt:  4.168514013290405
+thread  4  Avg rtt:  4.164402961730957
+thread  2  Avg rtt:  4.511693954467773
+thread  5  Avg rtt:  4.5815534591674805
+9 user
+thread  4  Avg rtt:  5.405777454376221
+thread  1  Avg rtt:  5.513567924499512
+thread  2  Avg rtt:  5.519388914108276
+thread  6  Avg rtt:  5.647789716720581
+thread  3  Avg rtt:  5.748819828033447
+thread  0  Avg rtt:  5.940325021743774
+thread  7  Avg rtt:  6.051597356796265
+thread  5  Avg rtt:  6.3380584716796875
+thread  8  Avg rtt:  6.628224849700928
