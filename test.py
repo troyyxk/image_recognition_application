@@ -57,8 +57,8 @@ def evaluate(path, thread_id):
         r = requests.get(query_url + uuid)
     end_time = time.time()
     time_elapsed = end_time - start_time
-    print("thread ", thread_id, " Avg rtt: ", time_elapsed)
-    # print("thread ", thread_id, " Avg tput: ", sum(tput_list) / len(tput_list))
+    # print("thread ", thread_id, " Avg rtt: ", time_elapsed)
+    print("thread ", thread_id, " Avg tput: ", len(b64_string) * 8 / 1000 / time_elapsed, "kbps")
 
 
 if __name__ == "__main__":
