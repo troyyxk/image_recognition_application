@@ -34,13 +34,13 @@ def create_payload(b64_str, file_ext):
 
 
 def evaluate(path, thread_id):
-    print("gate1")
+    # print("gate1")
     filename = path + "cat.png"
     img = open(filename, 'rb')
     b64_string = base64.b64encode(img.read()).decode('utf-8')
     file_ext = os.path.splitext(filename)[1][1:]
     b64_string = create_payload(b64_string, file_ext)
-    print("gate2")
+    # print("gate2")
 
     # send
     payload_size = len(b64_string) * 8
@@ -49,7 +49,7 @@ def evaluate(path, thread_id):
     start_time = time.time()
     r = requests.post(upload_url, data=data)
     uuid = r.json()['result']['uuid']
-    print("gate3")
+    # print("gate3")
 
     # send
     r = requests.get(query_url + uuid)
@@ -64,7 +64,7 @@ def evaluate(path, thread_id):
 if __name__ == "__main__":
     num_threads = 9
     for i in range(num_threads):
-        print("gate0")
+        # print("gate0")
         _thread.start_new_thread( evaluate, (pic_path, i) )
     while 1:
         pass
